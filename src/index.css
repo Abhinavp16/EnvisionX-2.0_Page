@@ -19,11 +19,14 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-main);
   overflow-x: hidden;
+  width: 100%;
+  position: relative;
   line-height: 1.5;
 }
 
@@ -35,9 +38,10 @@ canvas {
 }
 
 .container {
+  width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 }
 
 a {
@@ -138,14 +142,25 @@ button {
 
   .grid-2,
   .grid-3 {
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     gap: 1.5rem;
+    width: 100%;
+  }
+
+  .grid>*,
+  .grid-2>*,
+  .grid-3>* {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 }
 
 @media (max-width: 768px) {
   .container {
-    padding: 0 1.25rem;
+    padding: 0 1rem;
+    width: 100%;
+    overflow: hidden;
   }
 
   h1 {

@@ -202,6 +202,36 @@ const Roadmap = () => {
                     Detailed schedules and exact physical presentation slots will be communicated in advance to all shortlisted teams to ensure smooth coordination.
                 </p>
             </motion.div>
+            <style dangerouslySetInnerHTML={{
+                __html: `
+                @media (max-width: 768px) {
+                    .roadmap { overflow-x: hidden; }
+                    .roadmap > div:nth-child(2) { padding-left: 20px !important; }
+                    .roadmap [style*="left: 50%"] { left: 0 !important; transform: none !important; }
+                    .roadmap [style*="width: calc(50% - 50px)"] { 
+                        width: calc(100% - 40px) !important; 
+                        margin-left: 40px !important;
+                    }
+                    .roadmap [style*="justify-content: flex-end"] { justify-content: flex-start !important; }
+                    
+                    /* Adjust central line for mobile */
+                    .roadmap div[style*="width: 2px"] {
+                        left: 20px !important;
+                        height: 100% !important;
+                    }
+
+                    /* Adjust dots for mobile */
+                    .roadmap div[style*="width: 40px"] {
+                        left: 20px !important;
+                        width: 30px !important;
+                        height: 30px !important;
+                    }
+                    .roadmap div[style*="width: 30px"] svg {
+                        width: 14px;
+                        height: 14px;
+                    }
+                }
+            `}} />
         </section>
     );
 };
