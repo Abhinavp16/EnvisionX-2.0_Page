@@ -4,19 +4,50 @@ import { motion } from 'framer-motion';
 import videoSource from '../assets/envision.mp4';
 
 const Hero = () => {
-    const [isPlaying, setIsPlaying] = React.useState(false);
+    const [isPlaying, setIsPlaying] = React.useState(true);
     const videoRef = React.useRef(null);
 
     const togglePlay = () => {
         if (videoRef.current) {
             if (isPlaying) {
                 videoRef.current.pause();
+                setIsPlaying(false);
             } else {
                 videoRef.current.play();
+                setIsPlaying(true);
             }
-            setIsPlaying(!isPlaying);
         }
     };
+
+    React.useEffect(() => {
+        const attemptPlay = () => {
+            if (videoRef.current) {
+                videoRef.current.play()
+                    .then(() => {
+                        setIsPlaying(true);
+                        // Once playing, we can remove the interaction listeners
+                        window.removeEventListener('click', attemptPlay);
+                        window.removeEventListener('touchstart', attemptPlay);
+                    })
+                    .catch(error => {
+                        console.log("Play failed, waiting for interaction:", error);
+                        setIsPlaying(false);
+                    });
+            }
+        };
+
+        // Initial attempt
+        attemptPlay();
+
+        // Backup for browser restrictions
+        window.addEventListener('click', attemptPlay);
+        window.addEventListener('touchstart', attemptPlay);
+
+        return () => {
+            window.removeEventListener('click', attemptPlay);
+            window.removeEventListener('touchstart', attemptPlay);
+        };
+    }, []);
 
     return (
         <section className="hero section-padding" style={{ position: 'relative', overflow: 'hidden', paddingTop: '100px' }}>
@@ -62,8 +93,10 @@ const Hero = () => {
                                 transition: '0.5s filter'
                             }}
                             poster="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=1200"
+                            autoPlay
                             loop
                             muted
+                            playsInline
                         />
 
                         {!isPlaying && (
