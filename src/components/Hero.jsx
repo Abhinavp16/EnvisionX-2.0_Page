@@ -49,129 +49,208 @@ const Hero = () => {
         };
     }, []);
 
+    const [showNotice, setShowNotice] = React.useState(false);
+
+    const handleRegisterClick = () => {
+        setShowNotice(true);
+        setTimeout(() => {
+            setShowNotice(false);
+        }, 3000);
+    };
+
     return (
         <section className="hero section-padding" style={{ position: 'relative', overflow: 'hidden', paddingTop: '120px' }}>
             <div className="container">
-                <div className="grid-2" style={{ alignItems: 'center' }}>
-                    {/* Video Section (Left Side) */}
-                    <div className="hero-video-wrapper" style={{ order: window.innerWidth < 768 ? 2 : 1 }}>
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="trailer-box glass"
-                            style={{
-                                width: '100%',
-                                position: 'relative',
-                                borderRadius: '24px',
-                                overflow: 'hidden',
-                                aspectRatio: '16/9',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                boxShadow: '0 20px 80px rgba(0, 162, 255, 0.1)',
-                                cursor: 'pointer'
-                            }}
-                            onClick={togglePlay}
-                        >
-                            <video
-                                ref={videoRef}
-                                src={videoSource}
-                                style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'cover',
-                                    zIndex: 0,
-                                    filter: isPlaying ? 'none' : 'brightness(0.5) grayscale(0.5)',
-                                    transition: '0.5s filter'
-                                }}
-                                poster="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=1200"
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                            />
-
-                            {!isPlaying && (
-                                <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
-                                    <button className="play-btn" style={{
-                                        width: '64px',
-                                        height: '64px',
-                                        borderRadius: '50%',
-                                        background: 'rgba(255, 255, 255, 0.1)',
-                                        backdropFilter: 'blur(8px)',
-                                        border: '1px solid rgba(255, 255, 255, 0.2)',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        color: 'white',
-                                        cursor: 'pointer',
-                                        transition: '0.3s'
-                                    }}>
-                                        <Play fill="white" size={24} />
-                                    </button>
-                                    <span style={{ fontSize: '0.7rem', fontWeight: 'bold', letterSpacing: '2px', textTransform: 'uppercase', opacity: 0.8 }}>Watch Overview</span>
-                                </div>
-                            )}
-
-                            <div style={{ position: 'absolute', top: '20px', left: '20px', width: '40px', height: '40px', borderTop: '2px solid var(--accent-primary)', borderLeft: '2px solid var(--accent-primary)', opacity: 0.5, pointerEvents: 'none' }}></div>
-                            <div style={{ position: 'absolute', bottom: '20px', right: '20px', width: '40px', height: '40px', borderBottom: '2px solid var(--accent-primary)', borderRight: '2px solid var(--accent-primary)', opacity: 0.5, pointerEvents: 'none' }}></div>
-                        </motion.div>
-                    </div>
-
-                    {/* Text Content (Right Side) */}
+                {/* Notice Overlay */}
+                {showNotice && (
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        style={{ order: window.innerWidth < 768 ? 1 : 2 }}
+                        initial={{ opacity: 0, y: -50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -50 }}
+                        style={{
+                            position: 'fixed',
+                            top: '100px',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            zIndex: 2000,
+                            width: '90%',
+                            maxWidth: '450px'
+                        }}
                     >
-                        <div style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '8px',
-                            background: 'rgba(0, 162, 255, 0.1)',
-                            padding: '6px 16px',
-                            borderRadius: '100px',
-                            border: '1px solid rgba(0, 162, 255, 0.2)',
-                            color: 'var(--accent-primary)',
-                            fontSize: '0.75rem',
-                            fontWeight: '700',
-                            textTransform: 'uppercase',
-                            letterSpacing: '1px',
-                            marginBottom: '1.5rem'
+                        <div className="glass" style={{
+                            padding: '1.2rem 1.5rem',
+                            border: '1px solid var(--accent-primary)',
+                            boxShadow: '0 0 30px rgba(0, 162, 255, 0.3)',
+                            textAlign: 'center'
                         }}>
-                            <span style={{ display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-primary)', boxShadow: '0 0 10px var(--accent-primary)' }}></span>
+                            <div style={{ color: 'var(--accent-primary)', fontWeight: '800', marginBottom: '8px', fontSize: '1.1rem' }}>Coming Soon!</div>
+                            <div style={{ fontSize: '0.9rem', lineHeight: '1.5', opacity: 0.9 }}>
+                                Registration will begin on 10th Feb from 12:00 noon.
+                            </div>
+                            <div style={{ marginTop: '12px' }}>
+                                <div style={{ height: '3px', width: '100%', background: 'rgba(255,255,255,0.1)', borderRadius: '10px', overflow: 'hidden' }}>
+                                    <motion.div
+                                        initial={{ width: '100%' }}
+                                        animate={{ width: '0%' }}
+                                        transition={{ duration: 3, ease: 'linear' }}
+                                        style={{ height: '100%', background: 'var(--accent-primary)' }}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+
+                <div className="hero-responsive-grid">
+                    {/* Top Content (Heading & Description) */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="hero-text-content"
+                    >
+                        <div className="innovation-tag">
+                            <span className="pulse-dot"></span>
                             Structured Innovation Program
                         </div>
 
-                        <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: '800', marginBottom: '1.5rem', lineHeight: '1.1' }}>
+                        <h1 className="hero-title">
                             Envision-X <span className="gradient-text">2.0</span>
                         </h1>
 
-                        <p style={{ maxWidth: '600px', marginBottom: '2.5rem', color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 2vw, 1.1rem)', lineHeight: '1.6' }}>
+                        <p className="hero-desc">
                             Bridge the gap between academic learning and practical application. Develop innovative solutions through independent research and expert-guided implementation.
                         </p>
+                    </motion.div>
 
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
-                            <button className="btn-primary">
-                                Apply Now <ArrowRight size={20} />
-                            </button>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                <div style={{ width: '30px', height: '1px', background: 'var(--glass-border)' }}></div>
-                                <div>
-                                    <div style={{ fontSize: '0.7rem', opacity: 0.6, letterSpacing: '1px', textTransform: 'uppercase' }}>Registration Ends</div>
-                                    <div style={{ fontWeight: '700', fontSize: '0.9rem', color: 'var(--accent-primary)' }}>FEB 20</div>
+                    {/* Video Section */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="trailer-box glass hero-video-box"
+                        onClick={togglePlay}
+                    >
+                        <video
+                            ref={videoRef}
+                            src={videoSource}
+                            className="hero-video"
+                            poster="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=1200"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                        />
+
+                        {!isPlaying && (
+                            <div className="play-overlay">
+                                <div className="play-btn-large">
+                                    <Play fill="white" size={32} />
                                 </div>
+                                <span className="play-label">Watch Overview</span>
                             </div>
+                        )}
+
+                        <div className="corner-decor top-left"></div>
+                        <div className="corner-decor bottom-right"></div>
+                    </motion.div>
+
+                    {/* CTA Section */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="hero-cta-box"
+                    >
+                        <button onClick={handleRegisterClick} className="btn-primary" style={{ padding: '1rem 3.5rem', fontSize: '1.1rem' }}>
+                            Register Now <ArrowRight size={22} />
+                        </button>
+
+                        <div className="reg-info">
+                            <div className="divider-line"></div>
+                            <div style={{ textAlign: 'center' }}>
+                                <div className="reg-label">Registration Ends</div>
+                                <div className="reg-date">FEB 20</div>
+                            </div>
+                            <div className="divider-line"></div>
                         </div>
                     </motion.div>
                 </div>
             </div>
 
+            <style dangerouslySetInnerHTML={{
+                __html: `
+                .hero-responsive-grid {
+                    display: grid;
+                    gap: 2rem;
+                    align-items: center;
+                    grid-template-areas: 
+                        "text video"
+                        "cta video";
+                    grid-template-columns: 1.2fr 1fr;
+                }
 
+                .hero-text-content { grid-area: text; text-align: left; }
+                .hero-video-box { 
+                    grid-area: video; 
+                    width: 100%;
+                    position: relative;
+                    border-radius: 32px;
+                    overflow: hidden;
+                    aspect-ratio: 16/9;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 30px 100px rgba(0, 162, 255, 0.15);
+                    cursor: pointer;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                }
+                .hero-cta-box { grid-area: cta; display: flex; flex-direction: column; align-items: flex-start; gap: 2rem; }
+
+                @media (max-width: 992px) {
+                    .hero-responsive-grid {
+                        grid-template-areas: 
+                            "text"
+                            "video"
+                            "cta";
+                        grid-template-columns: 1fr;
+                        text-align: center;
+                    }
+                    .hero-text-content { text-align: center; }
+                    .hero-cta-box { align-items: center; }
+                    .hero-desc { margin-left: auto; margin-right: auto; }
+                }
+
+                .innovation-tag {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    background: rgba(0, 162, 255, 0.1);
+                    padding: 6px 16px;
+                    border-radius: 100px;
+                    border: 1px solid rgba(0, 162, 255, 0.2);
+                    color: var(--accent-primary);
+                    font-size: 0.75rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    margin-bottom: 1.5rem;
+                }
+                .pulse-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-primary); box-shadow: 0 0 10px var(--accent-primary); }
+                .hero-title { font-size: clamp(2.2rem, 5vw, 4.5rem); font-weight: 900; margin-bottom: 1.5rem; line-height: 1.1; }
+                .hero-desc { max-width: 600px; margin-bottom: 0; color: var(--text-secondary); font-size: clamp(1rem, 2vw, 1.1rem); line-height: 1.6; }
+                .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; transition: 0.5s filter; }
+                .play-overlay { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+                .play-btn-large { width: 80px; height: 80px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; color: white; }
+                .play-label { font-size: 0.8rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+                .corner-decor { position: absolute; width: 50px; height: 50px; opacity: 0.6; pointer-events: none; }
+                .top-left { top: 30px; left: 30px; border-top: 2px solid var(--accent-primary); border-left: 2px solid var(--accent-primary); }
+                .bottom-right { bottom: 30px; right: 30px; border-bottom: 2px solid var(--accent-primary); border-right: 2px solid var(--accent-primary); }
+                .reg-info { display: flex; align-items: center; gap: 1.5rem; opacity: 0.8; }
+                .divider-line { width: 40px; height: 1px; background: var(--glass-border); }
+                .reg-label { font-size: 0.75rem; opacity: 0.6; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+                .reg-date { font-weight: 800; font-size: 1.1rem; color: var(--accent-primary); }
+            `}} />
 
             {/* Background Glows */}
             <div style={{ position: 'absolute', top: '10%', right: '-10%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(0, 162, 255, 0.15) 0%, transparent 70%)', filter: 'blur(60px)', zIndex: -1 }}></div>
