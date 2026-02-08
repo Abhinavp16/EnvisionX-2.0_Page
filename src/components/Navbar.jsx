@@ -8,10 +8,10 @@ const Navbar = () => {
     return (
         <nav className="navbar glass" style={{
             position: 'fixed',
-            top: '20px',
+            top: '15px',
             left: '50%',
             transform: 'translateX(-50%)',
-            width: '95%',
+            width: '92%',
             maxWidth: '1200px',
             zIndex: 1000,
             padding: '0.6rem 1.2rem',
@@ -19,15 +19,16 @@ const Navbar = () => {
             justifyContent: 'space-between',
             alignItems: 'center',
             borderRadius: '100px',
+            border: '1px solid var(--glass-border)',
         }}>
-            <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '10px', fontWeight: '800', fontSize: '1.1rem' }}>
+            <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: '800', fontSize: '1rem' }}>
                 <img src={logo} alt="Envision-X Logo" style={{
-                    height: '32px',
-                    width: '32px',
-                    borderRadius: '8px',
+                    height: '28px',
+                    width: '28px',
+                    borderRadius: '6px',
                     objectFit: 'cover'
                 }} />
-                <span style={{ letterSpacing: '-0.5px' }}>Envision-X <span style={{ color: 'var(--accent-primary)' }}>2.0</span></span>
+                <span style={{ letterSpacing: '-0.3px' }}>Envision-X <span style={{ color: 'var(--accent-primary)' }}>2.0</span></span>
             </div>
 
             {/* Desktop Menu */}
@@ -40,30 +41,32 @@ const Navbar = () => {
             </ul>
 
             <div className="mobile-toggle" onClick={() => setIsOpen(!isOpen)} style={{ display: 'none', cursor: 'pointer', color: 'white' }}>
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
+                {isOpen ? <X size={22} /> : <Menu size={22} />}
             </div>
 
             {/* Mobile Menu Overlay */}
             {isOpen && (
-                <div className="mobile-menu glass" style={{
+                <div className="mobile-menu" style={{
                     position: 'absolute',
-                    top: '70px',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
+                    top: '65px',
+                    left: '0',
                     width: '100%',
                     padding: '1.5rem',
                     borderRadius: '24px',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '1rem',
+                    gap: '1.2rem',
                     textAlign: 'center',
+                    background: 'rgba(10, 17, 24, 0.95)',
+                    backdropFilter: 'blur(20px)',
                     border: '1px solid var(--glass-border)',
+                    boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
                 }}>
-                    <a href="/" className="nav-link" onClick={() => setIsOpen(false)}>Home</a>
-                    <a href="#roadmap" className="nav-link" onClick={() => setIsOpen(false)}>Timeline</a>
-                    <a href="#rules" className="nav-link" onClick={() => setIsOpen(false)}>Rules</a>
-                    <a href="#prizes" className="nav-link" onClick={() => setIsOpen(false)}>Prizes</a>
-                    <a href="#about" className="nav-link" onClick={() => setIsOpen(false)}>About</a>
+                    <a href="/" className="nav-link" style={{ fontSize: '1.1rem', fontWeight: '600' }} onClick={() => setIsOpen(false)}>Home</a>
+                    <a href="#roadmap" className="nav-link" style={{ fontSize: '1.1rem', fontWeight: '600' }} onClick={() => setIsOpen(false)}>Timeline</a>
+                    <a href="#rules" className="nav-link" style={{ fontSize: '1.1rem', fontWeight: '600' }} onClick={() => setIsOpen(false)}>Rules</a>
+                    <a href="#prizes" className="nav-link" style={{ fontSize: '1.1rem', fontWeight: '600' }} onClick={() => setIsOpen(false)}>Prizes</a>
+                    <a href="#about" className="nav-link" style={{ fontSize: '1.1rem', fontWeight: '600' }} onClick={() => setIsOpen(false)}>About</a>
                 </div>
             )}
 
@@ -73,17 +76,20 @@ const Navbar = () => {
                     transition: all 0.3s ease; 
                     position: relative;
                     opacity: 0.8;
+                    color: white;
                 }
                 .nav-link:hover { 
                     color: var(--accent-primary); 
                     opacity: 1;
-                    transform: translateY(-1px);
                 }
                 
                 @media (max-width: 768px) {
                     .desktop-menu { display: none !important; }
                     .mobile-toggle { display: block !important; }
-                    .navbar { border-radius: 20px !important; width: 92% !important; }
+                    .navbar { 
+                        border-radius: 20px !important; 
+                        padding: 0.5rem 1rem !important;
+                    }
                 }
             `}} />
         </nav>

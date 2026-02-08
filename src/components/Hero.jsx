@@ -182,7 +182,7 @@ const Hero = () => {
                 __html: `
                 .hero-responsive-grid {
                     display: grid;
-                    gap: 2rem;
+                    gap: 3rem;
                     align-items: center;
                     grid-template-areas: 
                         "text video"
@@ -195,13 +195,13 @@ const Hero = () => {
                     grid-area: video; 
                     width: 100%;
                     position: relative;
-                    border-radius: 32px;
+                    border-radius: 24px;
                     overflow: hidden;
                     aspect-ratio: 16/9;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    box-shadow: 0 30px 100px rgba(0, 162, 255, 0.15);
+                    box-shadow: 0 20px 60px rgba(0, 162, 255, 0.15);
                     cursor: pointer;
                     border: 1px solid rgba(255, 255, 255, 0.1);
                 }
@@ -215,10 +215,20 @@ const Hero = () => {
                             "cta";
                         grid-template-columns: 1fr;
                         text-align: center;
+                        gap: 2rem;
                     }
                     .hero-text-content { text-align: center; }
                     .hero-cta-box { align-items: center; }
                     .hero-desc { margin-left: auto; margin-right: auto; }
+                    .hero-video-box { border-radius: 16px; }
+                }
+
+                @media (max-width: 480px) {
+                    .hero-title { font-size: 2.2rem !important; }
+                    .hero-desc { font-size: 0.95rem; }
+                    .btn-primary { width: 100%; justify-content: center; padding: 0.8rem 2rem !important; }
+                    .reg-info { gap: 1rem !important; }
+                    .divider-line { width: 20px !important; }
                 }
 
                 .innovation-tag {
@@ -241,11 +251,11 @@ const Hero = () => {
                 .hero-desc { max-width: 600px; margin-bottom: 0; color: var(--text-secondary); font-size: clamp(1rem, 2vw, 1.1rem); line-height: 1.6; }
                 .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; transition: 0.5s filter; }
                 .play-overlay { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
-                .play-btn-large { width: 80px; height: 80px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; color: white; }
-                .play-label { font-size: 0.8rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-                .corner-decor { position: absolute; width: 50px; height: 50px; opacity: 0.6; pointer-events: none; }
-                .top-left { top: 30px; left: 30px; border-top: 2px solid var(--accent-primary); border-left: 2px solid var(--accent-primary); }
-                .bottom-right { bottom: 30px; right: 30px; border-bottom: 2px solid var(--accent-primary); border-right: 2px solid var(--accent-primary); }
+                .play-btn-large { width: 60px; height: 60px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; color: white; }
+                .play-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+                .corner-decor { position: absolute; width: 40px; height: 40px; opacity: 0.6; pointer-events: none; }
+                .top-left { top: 20px; left: 20px; border-top: 2px solid var(--accent-primary); border-left: 2px solid var(--accent-primary); }
+                .bottom-right { bottom: 20px; right: 20px; border-bottom: 2px solid var(--accent-primary); border-right: 2px solid var(--accent-primary); }
                 .reg-info { display: flex; align-items: center; gap: 1.5rem; opacity: 0.8; }
                 .divider-line { width: 40px; height: 1px; background: var(--glass-border); }
                 .reg-label { font-size: 0.75rem; opacity: 0.6; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }

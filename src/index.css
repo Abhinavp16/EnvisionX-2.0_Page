@@ -59,7 +59,7 @@ button {
 }
 
 .section-padding {
-  padding: 6rem 0;
+  padding: 5rem 0;
 }
 
 @media (max-width: 768px) {
@@ -75,6 +75,8 @@ button {
   border: 1px solid var(--glass-border);
   border-radius: 16px;
   transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  /* Prevent inner content from breaking glass edges */
 }
 
 .glass:hover {
@@ -89,12 +91,13 @@ button {
   color: white;
   padding: 0.8rem 2.2rem;
   border-radius: 50px;
-  font-weight: 600;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 0.6rem;
   box-shadow: 0 4px 20px var(--accent-glow);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
 }
 
 .btn-primary:active {
@@ -132,29 +135,26 @@ button {
 }
 
 @media (max-width: 992px) {
-  .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
 
   .grid-2,
   .grid-3 {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+}
 
+@media (max-width: 768px) {
   .container {
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
   }
 
   h1 {
-    font-size: 2.5rem !important;
+    font-size: 2.2rem !important;
+    line-height: 1.2 !important;
   }
 
   h2 {
-    font-size: 2rem !important;
+    font-size: 1.8rem !important;
   }
 }
 
