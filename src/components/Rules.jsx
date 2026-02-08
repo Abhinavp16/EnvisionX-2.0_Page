@@ -44,12 +44,13 @@ const Rules = () => {
             </div>
 
             {/* Event Modes */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem', marginBottom: '3rem' }}>
+            {/* Event Modes */}
+            <div className="grid-2" style={{ marginBottom: '3rem' }}>
                 {modes.map((mode, index) => (
                     <motion.div
                         key={index}
-                        initial={{ opacity: 0, x: index === 0 ? -20 : 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                         className="glass"
@@ -82,7 +83,7 @@ const Rules = () => {
             </div>
 
             {/* General Details */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
+            <div className="grid-3">
                 {sections.map((section, index) => (
                     <motion.div
                         key={index}

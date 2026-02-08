@@ -27,30 +27,35 @@ const Features = () => {
                 <p style={{ color: 'var(--accent-primary)', fontWeight: '800', letterSpacing: '4px', fontSize: '0.75rem', marginBottom: '1rem' }}>UNLIMITED DOMAINS</p>
                 <h2 style={{ fontSize: '2.5rem', fontWeight: '800' }}>Program Focus Areas</h2>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
+            <div className="grid-3">
                 {focusAreas.map((area, index) => (
                     <motion.div
                         key={index}
-                        whileHover={{ y: -5 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                        whileHover={{ y: -8, scale: 1.02 }}
                         className="feature-card glass"
-                        style={{ padding: '2rem 1.5rem', transition: '0.3s' }}
+                        style={{ padding: '2.5rem 2rem' }}
                     >
                         <div style={{
-                            width: '44px',
-                            height: '44px',
-                            borderRadius: '10px',
+                            width: '56px',
+                            height: '56px',
+                            borderRadius: '16px',
                             background: 'rgba(0, 162, 255, 0.1)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             color: 'var(--accent-primary)',
-                            marginBottom: '1.2rem',
-                            border: '1px solid rgba(0, 162, 255, 0.2)'
+                            marginBottom: '1.5rem',
+                            border: '1px solid rgba(0, 162, 255, 0.2)',
+                            boxShadow: '0 0 20px rgba(0, 162, 255, 0.1)'
                         }}>
                             {area.icon}
                         </div>
-                        <h3 style={{ fontSize: '1.25rem', marginBottom: '0.8rem', fontWeight: '700' }}>{area.title}</h3>
-                        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.5', fontSize: '0.9rem' }}>{area.desc}</p>
+                        <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem', fontWeight: '800' }}>{area.title}</h3>
+                        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', fontSize: '0.95rem' }}>{area.desc}</p>
                     </motion.div>
                 ))}
             </div>

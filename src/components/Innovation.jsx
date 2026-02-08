@@ -27,11 +27,11 @@ const Innovation = () => {
                 <h2 style={{ fontSize: '2.5rem', fontWeight: '800' }}>Purpose & Objectives</h2>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }}>
+            <div className="grid-2" style={{ alignItems: 'start' }}>
                 {/* Highlights Section */}
                 <motion.div
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                     className="glass"
@@ -43,20 +43,26 @@ const Innovation = () => {
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                         {highlights.map((item, i) => (
-                            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--text-secondary)' }}>
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, x: -10 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ delay: i * 0.1 }}
+                                style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--text-secondary)' }}
+                            >
                                 <CheckCircle2 size={16} style={{ color: 'var(--accent-primary)', flexShrink: 0 }} />
                                 <span style={{ fontSize: '0.95rem' }}>{item}</span>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </motion.div>
 
                 {/* Industry Experts Section */}
                 <motion.div
-                    initial={{ opacity: 0, x: 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
                     className="glass"
                     style={{ padding: '2.5rem', borderRadius: '24px' }}
                 >
@@ -69,10 +75,16 @@ const Innovation = () => {
                     </p>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                         {expertRoles.map((item, i) => (
-                            <div key={i} style={{ display: 'flex', alignItems: 'start', gap: '12px', color: 'var(--text-secondary)' }}>
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, x: 10 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ delay: i * 0.1 }}
+                                style={{ display: 'flex', alignItems: 'start', gap: '12px', color: 'var(--text-secondary)' }}
+                            >
                                 <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-primary)', marginTop: '8px', flexShrink: 0 }} />
                                 <span style={{ fontSize: '0.95rem' }}>{item}</span>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </motion.div>

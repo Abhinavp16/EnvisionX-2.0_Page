@@ -35,36 +35,54 @@ const Prizes = () => {
                     Recognizing excellence and innovation at every stage of the program.
                 </p>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+                <div className="grid-3">
                     {/* Main Prizes */}
-                    <div className="prize-card">
-                        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-                            <Trophy size={24} style={{ color: 'var(--accent-primary)' }} />
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.1 }}
+                        className="prize-card glass"
+                        style={{ padding: '2rem 1.5rem', border: '1px solid rgba(0, 162, 255, 0.1)' }}
+                    >
+                        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.2rem' }}>
+                            <Trophy size={28} style={{ color: 'var(--accent-primary)' }} />
                         </div>
-                        <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--accent-primary)', marginBottom: '0.5rem' }}>TOP PERFORMERS</div>
-                        <div style={{ fontSize: '1.8rem', fontWeight: '800', marginBottom: '0.5rem' }}>PRIZE POOL</div>
-                        <p style={{ fontSize: '0.8rem', opacity: 0.7, lineHeight: '1.5' }}>Awarded based on overall evaluation and rankings by industry experts.</p>
-                    </div>
+                        <div style={{ fontSize: '0.8rem', fontWeight: '800', color: 'var(--accent-primary)', marginBottom: '0.5rem', letterSpacing: '1px' }}>TOP PERFORMERS</div>
+                        <div style={{ fontSize: '1.4rem', fontWeight: '900', marginBottom: '0.8rem' }}>PRIZE POOL</div>
+                        <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>Awarded based on overall evaluation and rankings by industry experts.</p>
+                    </motion.div>
 
                     {/* Excellence */}
-                    <div className="prize-card">
-                        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-                            <Medal size={24} style={{ color: 'var(--accent-primary)' }} />
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.2 }}
+                        className="prize-card glass"
+                        style={{ padding: '2rem 1.5rem', border: '1px solid rgba(0, 162, 255, 0.1)' }}
+                    >
+                        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.2rem' }}>
+                            <Medal size={28} style={{ color: 'var(--accent-primary)' }} />
                         </div>
-                        <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--accent-primary)', marginBottom: '0.5rem' }}>EXCELLENCE</div>
-                        <div style={{ fontSize: '1.8rem', fontWeight: '800', marginBottom: '0.5rem' }}>CERTIFICATE</div>
-                        <p style={{ fontSize: '0.8rem', opacity: 0.7, lineHeight: '1.5' }}>Special recognition and certificates provided to all qualified finalist teams.</p>
-                    </div>
+                        <div style={{ fontSize: '0.8rem', fontWeight: '800', color: 'var(--accent-primary)', marginBottom: '0.5rem', letterSpacing: '1px' }}>EXCELLENCE</div>
+                        <div style={{ fontSize: '1.4rem', fontWeight: '900', marginBottom: '0.8rem' }}>CERTIFICATE</div>
+                        <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>Special recognition and certificates provided to all qualified finalist teams.</p>
+                    </motion.div>
 
                     {/* Participation */}
-                    <div className="prize-card">
-                        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-                            <ScrollText size={24} style={{ color: 'var(--accent-primary)' }} />
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.3 }}
+                        className="prize-card glass"
+                        style={{ padding: '2rem 1.5rem', border: '1px solid rgba(0, 162, 255, 0.1)' }}
+                    >
+                        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.2rem' }}>
+                            <ScrollText size={28} style={{ color: 'var(--accent-primary)' }} />
                         </div>
-                        <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--accent-primary)', marginBottom: '0.5rem' }}>PARTICIPATION</div>
-                        <div style={{ fontSize: '1.8rem', fontWeight: '800', marginBottom: '0.5rem' }}>GLOBAL</div>
-                        <p style={{ fontSize: '0.8rem', opacity: 0.7, lineHeight: '1.5' }}>Awarded to all teams, including those who do not qualify for final rounds.</p>
-                    </div>
+                        <div style={{ fontSize: '0.8rem', fontWeight: '800', color: 'var(--accent-primary)', marginBottom: '0.5rem', letterSpacing: '1px' }}>PARTICIPATION</div>
+                        <div style={{ fontSize: '1.4rem', fontWeight: '900', marginBottom: '0.8rem' }}>GLOBAL</div>
+                        <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>Awarded to all teams, including those who do not qualify for final rounds.</p>
+                    </motion.div>
                 </div>
 
                 <div style={{ marginTop: '3rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
