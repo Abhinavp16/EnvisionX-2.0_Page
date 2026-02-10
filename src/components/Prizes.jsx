@@ -1,94 +1,225 @@
 import React from 'react';
-import { Trophy, Medal, ScrollText } from 'lucide-react';
+import { Trophy, Star, FileText } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Prizes = () => {
+    const mainPrizes = [
+        {
+            rank: "🥇",
+            title: "First Prize",
+            amount: "₹3,000",
+            extras: "Trophy + Certificate of Achievement",
+            color: "#FFD700", // Gold
+            glow: "rgba(255, 215, 0, 0.2)"
+        },
+        {
+            rank: "🥈",
+            title: "Second Prize",
+            amount: "₹1,000",
+            extras: "Trophy + Certificate of Achievement",
+            color: "#C0C0C0", // Silver
+            glow: "rgba(192, 192, 192, 0.2)"
+        },
+        {
+            rank: "🥉",
+            title: "Third Prize",
+            amount: "₹500",
+            extras: "Trophy + Certificate of Achievement",
+            color: "#CD7F32", // Bronze
+            glow: "rgba(205, 127, 50, 0.2)"
+        }
+    ];
+
+    const certificates = [
+        {
+            icon: <Star size={24} />,
+            title: "Certificate of Excellence",
+            desc: "Awarded to the Top 10 Teams in recognition of outstanding performance.",
+            emoji: "🌟"
+        },
+        {
+            icon: <FileText size={24} />,
+            title: "Certificate of Participation",
+            desc: "Awarded to all remaining teams for their active participation in Envision-X 2.0.",
+            emoji: "📜"
+        }
+    ];
+
     return (
         <section id="prizes" className="prizes section-padding container">
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="glass"
-                style={{ padding: '3.5rem 2.5rem', borderRadius: '32px', textAlign: 'center' }}
-            >
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
-                    <div style={{
-                        width: '70px',
-                        height: '70px',
-                        borderRadius: '50%',
+            <div className="text-center mb-8" style={{ marginBottom: '4rem' }}>
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    className="prize-icon-wrapper"
+                    style={{
+                        width: '80px',
+                        height: '80px',
+                        margin: '0 auto 1.5rem',
                         background: 'rgba(0, 162, 255, 0.1)',
+                        borderRadius: '50%',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         color: 'var(--accent-primary)',
                         border: '1px solid var(--accent-primary)',
-                        boxShadow: '0 0 20px rgba(0, 162, 255, 0.2)'
-                    }}>
-                        <Trophy size={32} />
-                    </div>
-                </div>
+                        position: 'relative'
+                    }}
+                >
+                    <Trophy size={38} strokeWidth={1.5} />
+                </motion.div>
+                <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: '900', marginBottom: '1rem' }}
+                >
+                    Awards & <span className="gradient-text">Recognition</span>
+                </motion.h2>
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 }}
+                    style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem' }}
+                >
+                    Celebrating excellence and innovation in Envision-X 2.0
+                </motion.p>
+            </div>
 
-                <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1.5rem' }}>Awards & Recognition</h2>
-                <p style={{ maxWidth: '700px', margin: '0 auto 3rem', color: 'var(--text-secondary)', fontSize: '1.1rem' }}>
-                    Recognizing excellence and innovation at every stage of the program.
-                </p>
-
-                <div className="grid-3">
-                    {/* Main Prizes */}
+            <div className="grid-3 mb-8" style={{ marginBottom: '3rem' }}>
+                {mainPrizes.map((prize, index) => (
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.1 }}
-                        className="prize-card glass"
-                        style={{ padding: '2rem 1.5rem', border: '1px solid rgba(0, 162, 255, 0.1)' }}
+                        key={index}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.15 }}
+                        className="glass prize-card-featured"
+                        style={{
+                            padding: '3rem 2rem',
+                            textAlign: 'center',
+                            position: 'relative',
+                            border: `1px solid ${prize.color}22`,
+                            boxShadow: `0 10px 40px ${prize.glow}`,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center'
+                        }}
                     >
-                        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.2rem' }}>
-                            <Trophy size={28} style={{ color: 'var(--accent-primary)' }} />
+                        <div style={{ fontSize: '3.5rem', marginBottom: '1.5rem', filter: 'drop-shadow(0 0 10px rgba(0,0,0,0.3))' }}>{prize.rank}</div>
+                        <h3 style={{ fontSize: '1.4rem', fontWeight: '800', marginBottom: '0.8rem', color: prize.color, textTransform: 'uppercase', letterSpacing: '1px' }}>{prize.title}</h3>
+                        <div style={{ fontSize: '2.8rem', fontWeight: '900', marginBottom: '1rem' }} className="gradient-text">
+                            {prize.amount}
                         </div>
-                        <div style={{ fontSize: '0.8rem', fontWeight: '800', color: 'var(--accent-primary)', marginBottom: '0.5rem', letterSpacing: '1px' }}>TOP PERFORMERS</div>
-                        <div style={{ fontSize: '1.4rem', fontWeight: '900', marginBottom: '0.8rem' }}>PRIZE POOL</div>
-                        <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>Awarded based on overall evaluation and rankings by industry experts.</p>
-                    </motion.div>
+                        <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: '1.6', fontWeight: '500' }}>
+                            {prize.extras}
+                        </p>
 
-                    {/* Excellence */}
+                        {/* Decorative background glow */}
+                        <div style={{
+                            position: 'absolute',
+                            top: '50%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            width: '120px',
+                            height: '120px',
+                            background: prize.color,
+                            filter: 'blur(100px)',
+                            opacity: 0.08,
+                            zIndex: -1
+                        }}></div>
+                    </motion.div>
+                ))}
+            </div>
+
+            <div className="grid-2">
+                {certificates.map((cert, index) => (
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
+                        key={index}
+                        initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.2 }}
-                        className="prize-card glass"
-                        style={{ padding: '2rem 1.5rem', border: '1px solid rgba(0, 162, 255, 0.1)' }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.5 + (index * 0.1) }}
+                        className="glass cert-card"
+                        style={{
+                            padding: '2rem 2.5rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '1.5rem',
+                            border: '1px solid rgba(255, 255, 255, 0.05)'
+                        }}
                     >
-                        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.2rem' }}>
-                            <Medal size={28} style={{ color: 'var(--accent-primary)' }} />
+                        <div style={{
+                            width: '64px',
+                            height: '64px',
+                            borderRadius: '18px',
+                            background: 'rgba(0, 162, 255, 0.08)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontSize: '28px',
+                            flexShrink: 0,
+                            border: '1px solid rgba(0, 162, 255, 0.15)'
+                        }}>
+                            {cert.emoji}
                         </div>
-                        <div style={{ fontSize: '0.8rem', fontWeight: '800', color: 'var(--accent-primary)', marginBottom: '0.5rem', letterSpacing: '1px' }}>EXCELLENCE</div>
-                        <div style={{ fontSize: '1.4rem', fontWeight: '900', marginBottom: '0.8rem' }}>CERTIFICATE</div>
-                        <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>Special recognition and certificates provided to all qualified finalist teams.</p>
-                    </motion.div>
-
-                    {/* Participation */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.3 }}
-                        className="prize-card glass"
-                        style={{ padding: '2rem 1.5rem', border: '1px solid rgba(0, 162, 255, 0.1)' }}
-                    >
-                        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.2rem' }}>
-                            <ScrollText size={28} style={{ color: 'var(--accent-primary)' }} />
+                        <div>
+                            <h4 style={{ fontSize: '1.2rem', fontWeight: '700', marginBottom: '0.4rem', color: 'white' }}>{cert.title}</h4>
+                            <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
+                                {cert.desc}
+                            </p>
                         </div>
-                        <div style={{ fontSize: '0.8rem', fontWeight: '800', color: 'var(--accent-primary)', marginBottom: '0.5rem', letterSpacing: '1px' }}>PARTICIPATION</div>
-                        <div style={{ fontSize: '1.4rem', fontWeight: '900', marginBottom: '0.8rem' }}>GLOBAL</div>
-                        <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>Awarded to all teams, including those who do not qualify for final rounds.</p>
                     </motion.div>
-                </div>
+                ))}
+            </div>
 
-                <div style={{ marginTop: '3rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                    Winners and runners-up will receive <strong>special recognition and awards</strong> during the Grand Exhibition.
-                </div>
-            </motion.div>
+            <style dangerouslySetInnerHTML={{
+                __html: `
+                .prize-icon-wrapper::after {
+                    content: '';
+                    position: absolute;
+                    inset: -8px;
+                    border-radius: 50%;
+                    border: 1px solid rgba(0, 162, 255, 0.2);
+                    animation: pulse-ring 2s infinite;
+                }
+                @keyframes pulse-ring {
+                    0% { transform: scale(0.8); opacity: 0.5; }
+                    100% { transform: scale(1.3); opacity: 0; }
+                }
+                .prize-card-featured {
+                    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+                }
+                .prize-card-featured:hover {
+                    transform: translateY(-12px) scale(1.02);
+                    background: rgba(255, 255, 255, 0.05);
+                    border-color: rgba(255, 255, 255, 0.2) !important;
+                }
+                .cert-card {
+                    transition: all 0.4s ease;
+                }
+                .cert-card:hover {
+                    background: rgba(0, 162, 255, 0.05);
+                    border-color: rgba(0, 162, 255, 0.2) !important;
+                }
+                @media (max-width: 992px) {
+                    .grid-2 {
+                        grid-template-columns: 1fr;
+                    }
+                }
+                @media (max-width: 480px) {
+                    .prize-card-featured {
+                        padding: 2.5rem 1.5rem !important;
+                    }
+                    .cert-card {
+                        flex-direction: column;
+                        text-align: center;
+                        padding: 2rem !important;
+                    }
+                }
+            `}} />
         </section>
     );
 };
