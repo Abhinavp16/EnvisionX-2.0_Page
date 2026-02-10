@@ -1,59 +1,14 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const CTA = () => {
-    const [showNotice, setShowNotice] = React.useState(false);
-
     const handleRegisterClick = () => {
-        setShowNotice(true);
-        setTimeout(() => {
-            setShowNotice(false);
-        }, 3000);
+        window.open("https://forms.gle/1dpnYenni1Rfvz5u5", "_blank");
     };
 
     return (
         <section className="cta section-padding container" style={{ paddingBottom: '100px' }}>
-            <AnimatePresence>
-                {showNotice && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -50 }}
-                        style={{
-                            position: 'fixed',
-                            top: '100px',
-                            left: '50%',
-                            transform: 'translateX(-50%)',
-                            zIndex: 2000,
-                            width: '90%',
-                            maxWidth: '450px'
-                        }}
-                    >
-                        <div className="glass" style={{
-                            padding: '1.2rem 1.5rem',
-                            border: '1px solid var(--accent-primary)',
-                            boxShadow: '0 0 30px rgba(0, 162, 255, 0.3)',
-                            textAlign: 'center'
-                        }}>
-                            <div style={{ color: 'var(--accent-primary)', fontWeight: '800', marginBottom: '8px', fontSize: '1.1rem' }}>Coming Soon!</div>
-                            <div style={{ fontSize: '0.9rem', lineHeight: '1.5', opacity: 0.9 }}>
-                                Registration will begin on 10th Feb from 12:00 noon.
-                            </div>
-                            <div style={{ marginTop: '12px' }}>
-                                <div style={{ height: '3px', width: '100%', background: 'rgba(255,255,255,0.1)', borderRadius: '10px', overflow: 'hidden' }}>
-                                    <motion.div
-                                        initial={{ width: '100%' }}
-                                        animate={{ width: '0%' }}
-                                        transition={{ duration: 3, ease: 'linear' }}
-                                        style={{ height: '100%', background: 'var(--accent-primary)' }}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
 
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
