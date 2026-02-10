@@ -98,7 +98,7 @@ const Prizes = () => {
                         transition={{ delay: index * 0.15 }}
                         className="glass prize-card-featured"
                         style={{
-                            padding: '3rem 2rem',
+                            padding: '2rem 1.5rem',
                             textAlign: 'center',
                             position: 'relative',
                             border: `1px solid ${prize.color}22`,
@@ -108,12 +108,12 @@ const Prizes = () => {
                             alignItems: 'center'
                         }}
                     >
-                        <div style={{ fontSize: '3.5rem', marginBottom: '1.5rem', filter: 'drop-shadow(0 0 10px rgba(0,0,0,0.3))' }}>{prize.rank}</div>
-                        <h3 style={{ fontSize: '1.4rem', fontWeight: '800', marginBottom: '0.8rem', color: prize.color, textTransform: 'uppercase', letterSpacing: '1px' }}>{prize.title}</h3>
-                        <div style={{ fontSize: '2.8rem', fontWeight: '900', marginBottom: '1rem' }} className="gradient-text">
+                        <div style={{ fontSize: '2.8rem', marginBottom: '1rem', filter: 'drop-shadow(0 0 10px rgba(0,0,0,0.3))' }}>{prize.rank}</div>
+                        <h3 style={{ fontSize: '1.1rem', fontWeight: '800', marginBottom: '0.6rem', color: prize.color, textTransform: 'uppercase', letterSpacing: '1px' }}>{prize.title}</h3>
+                        <div style={{ fontSize: '2.2rem', fontWeight: '900', marginBottom: '0.8rem' }} className="gradient-text">
                             {prize.amount}
                         </div>
-                        <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: '1.6', fontWeight: '500' }}>
+                        <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.5', fontWeight: '500' }}>
                             {prize.extras}
                         </p>
 
@@ -144,30 +144,30 @@ const Prizes = () => {
                         transition={{ delay: 0.5 + (index * 0.1) }}
                         className="glass cert-card"
                         style={{
-                            padding: '2rem 2.5rem',
+                            padding: '1.5rem 2rem',
                             display: 'flex',
                             alignItems: 'center',
-                            gap: '1.5rem',
+                            gap: '1.2rem',
                             border: '1px solid rgba(255, 255, 255, 0.05)'
                         }}
                     >
                         <div style={{
-                            width: '64px',
-                            height: '64px',
-                            borderRadius: '18px',
+                            width: '50px',
+                            height: '50px',
+                            borderRadius: '14px',
                             background: 'rgba(0, 162, 255, 0.08)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            fontSize: '28px',
+                            fontSize: '22px',
                             flexShrink: 0,
                             border: '1px solid rgba(0, 162, 255, 0.15)'
                         }}>
                             {cert.emoji}
                         </div>
                         <div>
-                            <h4 style={{ fontSize: '1.2rem', fontWeight: '700', marginBottom: '0.4rem', color: 'white' }}>{cert.title}</h4>
-                            <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
+                            <h4 style={{ fontSize: '1.1rem', fontWeight: '700', marginBottom: '0.3rem', color: 'white' }}>{cert.title}</h4>
+                            <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.4' }}>
                                 {cert.desc}
                             </p>
                         </div>
