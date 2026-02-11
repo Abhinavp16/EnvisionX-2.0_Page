@@ -70,7 +70,7 @@ const Hero = () => {
                         </div>
 
                         <h1 className="hero-title">
-                            Envision-X <span className="gradient-text">2.0</span>
+                            🚀 Envision-X <span className="gradient-text">2.0</span>
                         </h1>
 
                         <p className="hero-desc">
