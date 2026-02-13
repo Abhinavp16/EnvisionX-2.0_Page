@@ -6,25 +6,25 @@ const Prizes = () => {
     const mainPrizes = [
         {
             rank: "🥇",
-            title: "First Prize",
-            amount: "₹3,000",
-            extras: "Trophy + Certificate of Achievement",
+            title: "Champion",
+            amount: "₹7,000",
+            extras: "Devity Perks + Certificate",
             color: "#FFD700", // Gold
             glow: "rgba(255, 215, 0, 0.2)"
         },
         {
             rank: "🥈",
-            title: "Second Prize",
-            amount: "₹1,000",
-            extras: "Trophy + Certificate of Achievement",
+            title: "1st Runner-Up",
+            amount: "₹5,000",
+            extras: "Devity Perks + Certificate of Excellence",
             color: "#C0C0C0", // Silver
             glow: "rgba(192, 192, 192, 0.2)"
         },
         {
             rank: "🥉",
-            title: "Third Prize",
-            amount: "₹500",
-            extras: "Trophy + Certificate of Achievement",
+            title: "2nd Runner-Up",
+            amount: "₹3,000",
+            extras: "Devity Perks + Certificate of Excellence",
             color: "#CD7F32", // Bronze
             glow: "rgba(205, 127, 50, 0.2)"
         }

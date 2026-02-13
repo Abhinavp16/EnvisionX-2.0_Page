@@ -4,12 +4,11 @@ import { motion } from 'framer-motion';
 
 const Innovation = () => {
     const highlights = [
-        "Pure self-driven innovation model",
-        "National inter-university participation",
-        "Two-stage evaluation system",
-        "Live physical project exhibition",
-        "Direct industry review",
-        "Academic credibility & transparency"
+        "Special recognition by Industry Mentors",
+        "Direct referrals for internships & live projects",
+        "Opportunity to work on real-world projects with mentors",
+        "Industry-level feedback to improve your product",
+        "Certificate of Excellence & strong resume boost"
     ];
 
     const expertRoles = [
@@ -39,7 +38,7 @@ const Innovation = () => {
                 >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
                         <Star size={24} style={{ color: 'var(--accent-primary)' }} />
-                        <h3 style={{ fontSize: '1.5rem', fontWeight: '800' }}>Key Highlights</h3>
+                        <h3 style={{ fontSize: '1.5rem', fontWeight: '800' }}>Key Benefits for Students</h3>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                         {highlights.map((item, i) => (
