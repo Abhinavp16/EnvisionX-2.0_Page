@@ -9,11 +9,13 @@ import CTA from './components/CTA';
 import Rules from './components/Rules';
 import Prizes from './components/Prizes';
 import Footer from './components/Footer';
+import SplashCursor from './components/SplashCursor';
 import './index.css';
 
 function App() {
   return (
     <div className="app">
+      <SplashCursor />
       <Navbar />
       <main>
         <Hero />
