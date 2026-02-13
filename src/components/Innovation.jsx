@@ -20,7 +20,7 @@ const Innovation = () => {
     ];
 
     return (
-        <section className="innovation section-padding container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <section id="about" className="innovation section-padding container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                 <p style={{ color: 'var(--accent-primary)', fontWeight: '800', letterSpacing: '3px', fontSize: '0.75rem', marginBottom: '0.8rem' }}>PROGRAM CORE</p>
                 <h2 style={{ fontSize: '2.5rem', fontWeight: '800' }}>Purpose & Objectives</h2>
@@ -34,7 +34,15 @@ const Innovation = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                     className="glass"
-                    style={{ padding: '2.5rem', borderRadius: '24px' }}
+                    style={{
+                        padding: '3rem',
+                        borderRadius: '30px',
+                        border: '1px solid rgba(0, 162, 255, 0.3)',
+                        background: 'linear-gradient(160deg, rgba(0, 10, 24, 0.8) 0%, rgba(0, 20, 40, 0.6) 100%)',
+                        boxShadow: '0 0 40px rgba(0, 162, 255, 0.1)',
+                        position: 'relative',
+                        overflow: 'hidden'
+                    }}
                 >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
                         <Star size={24} style={{ color: 'var(--accent-primary)' }} />
@@ -63,7 +71,15 @@ const Innovation = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="glass"
-                    style={{ padding: '2.5rem', borderRadius: '24px' }}
+                    style={{
+                        padding: '3rem',
+                        borderRadius: '30px',
+                        border: '1px solid rgba(0, 162, 255, 0.3)',
+                        background: 'linear-gradient(160deg, rgba(0, 10, 24, 0.8) 0%, rgba(0, 20, 40, 0.6) 100%)',
+                        boxShadow: '0 0 40px rgba(0, 162, 255, 0.1)',
+                        position: 'relative',
+                        overflow: 'hidden'
+                    }}
                 >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
                         <Users2 size={24} style={{ color: 'var(--accent-primary)' }} />

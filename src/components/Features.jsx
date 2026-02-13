@@ -89,7 +89,10 @@ const Features = () => {
                             flexDirection: 'column',
                             position: 'relative',
                             overflow: 'hidden',
-                            borderRadius: '24px'
+                            borderRadius: '30px',
+                            border: '1px solid rgba(0, 162, 255, 0.3)',
+                            background: 'linear-gradient(160deg, rgba(0, 10, 24, 0.8) 0%, rgba(0, 20, 40, 0.6) 100%)',
+                            boxShadow: '0 0 40px rgba(0, 162, 255, 0.1)'
                         }}
                     >
                         {/* Background Image with Overlay */}

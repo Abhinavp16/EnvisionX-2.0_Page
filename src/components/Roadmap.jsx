@@ -144,9 +144,11 @@ const Roadmap = () => {
                                 whileHover={{ scale: 1.02 }}
                                 className="glass"
                                 style={{
-                                    padding: '1.25rem 1.5rem',
-                                    borderRadius: '16px',
-                                    border: '1px solid var(--glass-border)',
+                                    padding: '1.5rem',
+                                    borderRadius: '24px',
+                                    border: '1px solid rgba(0, 162, 255, 0.3)',
+                                    background: 'linear-gradient(160deg, rgba(0, 10, 24, 0.8) 0%, rgba(0, 20, 40, 0.6) 100%)',
+                                    boxShadow: '0 0 25px rgba(0, 162, 255, 0.1)',
                                     position: 'relative',
                                     overflow: 'hidden'
                                 }}

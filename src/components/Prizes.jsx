@@ -101,7 +101,9 @@ const Prizes = () => {
                             padding: '2rem 1.5rem',
                             textAlign: 'center',
                             position: 'relative',
-                            border: `1px solid ${prize.color}22`,
+                            border: `1px solid ${prize.color}40`,
+                            background: 'linear-gradient(160deg, rgba(0, 10, 24, 0.8) 0%, rgba(0, 20, 40, 0.6) 100%)',
+                            borderRadius: '30px',
                             boxShadow: `0 10px 40px ${prize.glow}`,
                             display: 'flex',
                             flexDirection: 'column',
@@ -144,11 +146,14 @@ const Prizes = () => {
                         transition={{ delay: 0.5 + (index * 0.1) }}
                         className="glass cert-card"
                         style={{
-                            padding: '1.5rem 2rem',
+                            padding: '2rem',
                             display: 'flex',
                             alignItems: 'center',
                             gap: '1.2rem',
-                            border: '1px solid rgba(255, 255, 255, 0.05)'
+                            borderRadius: '24px',
+                            border: '1px solid rgba(0, 162, 255, 0.3)',
+                            background: 'linear-gradient(160deg, rgba(0, 10, 24, 0.8) 0%, rgba(0, 20, 40, 0.6) 100%)',
+                            boxShadow: '0 0 30px rgba(0, 162, 255, 0.1)'
                         }}
                     >
                         <div style={{
