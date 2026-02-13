@@ -19,10 +19,10 @@ function App() {
         <Hero />
         <Stats />
         <Features />
+        <Prizes />
         <Innovation />
         <Roadmap />
         <Rules />
-        <Prizes />
         <CTA />
       </main>
       <Footer />

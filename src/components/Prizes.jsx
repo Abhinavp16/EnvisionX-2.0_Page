@@ -8,7 +8,7 @@ const Prizes = () => {
             rank: "🥇",
             title: "Champion",
             amount: "₹7,000",
-            extras: "Devity Perks + Certificate",
+            extras: "Devity Perks + Certificate of Excellence",
             color: "#FFD700", // Gold
             glow: "rgba(255, 215, 0, 0.2)"
         },
