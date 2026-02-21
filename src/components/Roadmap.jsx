@@ -12,14 +12,14 @@ const Roadmap = () => {
             side: 'right'
         },
         {
-            date: 'Feb 12 - Feb 24',
+            date: 'Feb 12 - Feb 28',
             title: 'Idea Submission & Approval',
             desc: 'Participants submit concepts for review. Feedback provided for originality, feasibility, and impact.',
             icon: <Lightbulb size={18} />,
             side: 'left'
         },
         {
-            date: 'Feb 25 - Mar 25',
+            date: 'Mar 1 - Mar 25',
             title: 'Project Development',
             desc: 'Independent building phase. Focused on technical implementation, innovation, and demo preparation.',
             icon: <Code size={18} />,
