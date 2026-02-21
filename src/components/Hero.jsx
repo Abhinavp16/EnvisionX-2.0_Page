@@ -126,8 +126,7 @@ const Hero = () => {
                             <div style={{ textAlign: 'center' }}>
                                 <div className="reg-label">Registration Ends</div>
                                 <div className="reg-date" style={{ fontSize: '0.85rem', lineHeight: '1.4' }}>
-                                    24 Feb (Other Universities)<br />
-                                    21 Feb (Amity University)
+                                    28 Feb
                                 </div>
                             </div>
                             <div className="divider-line"></div>
