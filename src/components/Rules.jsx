@@ -121,7 +121,7 @@ const Rules = () => {
                 }}>
                     {[
                         "The hackathon is open to students of all participating colleges. Valid college ID is mandatory.",
-                        "Each team must have exactly 4 members, including at least 1 female and 1 non-tech student (compulsory).",
+                        "Each team can have maximum 4 members, including at least 1 female and 1 non-tech student .",
                         "A participant can be part of only one team. No team changes after registration.",
                         "Registration is paid (non-refundable) and confirmed only after successful payment.",
                         "The hackathon will have 2 rounds:",
