@@ -124,7 +124,7 @@ const Hero = () => {
                         <div className="reg-info">
                             <div className="divider-line"></div>
                             <div style={{ textAlign: 'center' }}>
-                                <div className="reg-label">Registration Ends</div>
+                                <div className="reg-label"> </div>
                                 <div className="reg-date" style={{ fontSize: '0.85rem', lineHeight: '1.4' }}>
                                     
                                 </div>
